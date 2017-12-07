@@ -1,12 +1,14 @@
 exports.config = {
-    seleniumAddress: 'http://ie11.dev:4444/wd/hub',
+    seleniumServerJar: './driver/selenium-server-standalone-3.8.1.jar',
+    chromeDriver: './driver/chromedriver.exe',
+    // seleniumAddress: 'http://ie11.dev:4444/wd/hub',
     // directConnect: true, // chrome
     framework: 'jasmine2',
     // Time out for all scripts
     allScriptsTimeout: 999999999,
     getPageTimeout: 999999999,
     // e2e tests location
-    specs: ['../tests/*_spec.js'],
+    specs: ['../tests/T001_loginAddPictureOccupation_spec.js'],
     capabilities: {
         // 'browserName': 'internet explorer',
         // 'platform': 'ANY',

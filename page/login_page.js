@@ -1,5 +1,5 @@
 var login_page = function() {
-    // Elements
+    // Elementsa
     var emailTxt = element(by.model('vm.user.email'));
     var passTxt = element(by.model('vm.user.password'));
     var loginBtn = element(by.name('login'));

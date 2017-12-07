@@ -12,7 +12,7 @@ var uploadPic_page = function () {
     var path = require('path');
     var absolutePath = path.resolve(__dirname, "../conf/temp/pic.png");
     var feFilePath = element(by.css('input[type="file"]'));
-    var feUploadBtn = element(by.css('#uploadButton'));
+    var feCloseBtn = element(by.css('#close'));
 
     // Functions
     this.uploadProfilePic = function () {
@@ -22,7 +22,7 @@ var uploadPic_page = function () {
         profileDlg.click();
         feFilePath.sendKeys(absolutePath);
         uploadBtn.click();
+        feCloseBtn.click();
     };
-
 };
 module.exports = new uploadPic_page();

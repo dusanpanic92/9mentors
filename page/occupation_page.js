@@ -17,7 +17,7 @@ var occupation_page = function () {
             .mouseDown(editPenIconOrg)
             .mouseUp(editPenIconOrg)
             .perform();
-        organisationTxt.click().sendKeys('HTEC');
+        organisationTxt.click().clear().sendKeys('HTEC');
         checkIcon.click();
         // Check if proper text is typed
         expect(organisationTxt.getAttribute('value')).toEqual('HTEC');
@@ -31,7 +31,7 @@ var occupation_page = function () {
             .mouseDown(editPenIconDep)
             .mouseUp(editPenIconDep)
             .perform();
-        departmentTxt.click().sendKeys('Stena');
+        departmentTxt.click().clear().sendKeys('Stena');
         checkIcon.click();
         // Check if proper text is typed
         expect(departmentTxt.getAttribute('value')).toEqual('Stena');
@@ -45,7 +45,7 @@ var occupation_page = function () {
             .mouseDown(editPenIconPos)
             .mouseUp(editPenIconPos)
             .perform();
-        positionTxt.click().sendKeys('QA Engineer');
+        positionTxt.click().clear().sendKeys('QA Engineer');
         checkIcon.click();
         // Check if proper text is typed
         expect(positionTxt.getAttribute('value')).toEqual('QA Engineer');

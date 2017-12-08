@@ -1,7 +1,7 @@
 var subtopicSendMsg_page = function() {
     var EC = protractor.ExpectedConditions;
     // Elements
-    var groupViewBtn = element(by.css('.icon-group'));
+    var groupViewBtn = element(by.uiSref('app.group'));
     var groupBoxBtn = element(by.repeater('group in vm.groups'));
     var newTopicBtn = element(by.css('[ng-click="vm.openNewSubtopic($event)"]'));
     var topicNameTxt = element(by.model('vm.sharedData.topicName'));

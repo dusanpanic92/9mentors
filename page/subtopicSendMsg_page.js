@@ -10,18 +10,41 @@ var subtopicSendMsg_page = function() {
     var messageTxt = element(by.model('vm.messageText'));
     var sendMsgBtn = element(by.css('[ng-click="vm.sendMessage()"]'));
     var newMsgBtn = element(by.css('[ng-click="vm.goToUnseenTopic(group)"]'));
+    var topicMenu = element(by.css('[ng-click="vm.onItemClick(topic)"]'));
     var msgText = element(by.css('.message-text'));
     var openSubtopic = element(by.css('[ng-click="vm.goToTopic()"]'));
 
     // Functions
-    this.subtopicMessage = function() {
-        // Open group, send message in group. Create topic and send message in topic
+    this.sendGroupMsg = function() {
+        // Open group, send message in group - user1
         groupViewBtn.click();
         groupBoxBtn.click();
-        messageTxt.click();
-        messageTxt.sendKeys('First message 1');
+        messageTxt.click().sendKeys('First message 1');
+        sendMsgBtn.click();        
+    };
+
+    this.createNewTopicSendMsg = function() {
+        // Create topic, send message in topic - user1
+        newTopicBtn.click();
+        topicNameTxt.click().sendKeys('New topic 1');
+        addUserBtn.click();
+        createTopicBtn.click();
+        messageTxt.click().sendKeys('Topic message 1');
         sendMsgBtn.click();
-        
+    };
+
+    this.checkMsgGroup = function() {
+        // Open group, check message - user2
+        groupViewBtn.click();
+        newMsgBtn.click();
+        topicMenu.click();
+        expect(msgText.getText()).toEqual('First message 1');
+    };
+
+    this.checkMsgTopic = function() {
+        // Open topic, check message - user2
+        openSubtopic.click();
+        expect(msgText.getText()).toEqual('Topic message 1');
     };
 };
 module.exports = new subtopicSendMsg_page();

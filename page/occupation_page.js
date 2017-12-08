@@ -10,6 +10,8 @@ var occupation_page = function () {
 
     // Functions
     this.fillOrganisationTxt = function () {
+        // Hover on the organization text field, click on pen icon to edit
+        // Enter text, click on check icon to submit
         browser.actions()
             .mouseMove(organisationTxt)
             .mouseDown(editPenIconOrg)
@@ -17,10 +19,13 @@ var occupation_page = function () {
             .perform();
         organisationTxt.click().sendKeys('HTEC');
         checkIcon.click();
+        // Check if proper text is typed
         expect(organisationTxt.getAttribute('value')).toEqual('HTEC');
     };
 
     this.fillDepartmentTxt = function () {
+        // Hover on the department text field, click on pen icon to edit
+        // Enter text, click on check icon to submit
         browser.actions()
             .mouseMove(departmentTxt)
             .mouseDown(editPenIconDep)
@@ -28,10 +33,13 @@ var occupation_page = function () {
             .perform();
         departmentTxt.click().sendKeys('Stena');
         checkIcon.click();
+        // Check if proper text is typed
         expect(departmentTxt.getAttribute('value')).toEqual('Stena');
     };
 
     this.fillPositionTxt = function () {
+        // Hover on the position text field, click on pen icon to edit
+        // Enter text, click on check icon to submit
         browser.actions()
             .mouseMove(positionTxt)
             .mouseDown(editPenIconPos)
@@ -39,6 +47,7 @@ var occupation_page = function () {
             .perform();
         positionTxt.click().sendKeys('QA Engineer');
         checkIcon.click();
+        // Check if proper text is typed
         expect(positionTxt.getAttribute('value')).toEqual('QA Engineer');
     };
 };

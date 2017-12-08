@@ -14,6 +14,7 @@ var uploadPic_page = function () {
 
     // Functions
     this.uploadProfilePic = function () {
+        // Click on small profile icon in header, open upload, submit it
         smallCircleIcon.click();
         browser.sleep(100);
         profilePic.click();

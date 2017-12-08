@@ -11,18 +11,14 @@ var uploadPic_page = function () {
     // File explorer dialog elements
     var path = require('path');
     var absolutePath = path.resolve(__dirname, "../conf/temp/pic.png");
-    var feFilePath = element(by.css('input[type="file"]'));
-    var feCloseBtn = element(by.css('#close'));
 
     // Functions
     this.uploadProfilePic = function () {
         smallCircleIcon.click();
         browser.sleep(100);
-        // profilePic.click();
-        // profileDlg.click();
-        // feFilePath.sendKeys(absolutePath);
-        // feCloseBtn.click();
-        // uploadBtn.click();
+        profilePic.click();
+        openUploadPic.sendKeys(absolutePath);
+        uploadBtn.click();
     };
 };
 module.exports = new uploadPic_page();

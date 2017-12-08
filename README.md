@@ -12,13 +12,13 @@ For T002, because main (parent) topics can't be removed. New topic need to be cr
 Required tools for test running:
 * JAVA JDK 8 - install it in usual way
 * Node.js 8.9.2 - install it in usual way
-* Protractor 5.2.1 - npm install -g protractor@5.2.1
-* package.json tools - ./conf/npm install
+* Protractor 5.2.1 - `npm install -g protractor@5.2.1`
+* package.json tools - `./conf/npm install`
 
 # Test running
 To run test. Open CMD in root project, then *conf* folder and execute command:
 
-*protractor conf.js*
+`protractor conf.js`
 
 By the current settings in *conf.js* both test will be ran.
 In the *conf.js* 9th line of code, under the *specs* command it can be changed.

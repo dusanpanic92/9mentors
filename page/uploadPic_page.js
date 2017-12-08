@@ -8,7 +8,7 @@ var uploadPic_page = function () {
     var profileDlg = element(by.css('#profile-image-modal'));
     var openUploadPic = element.all(by.model('vm.file')).get(0);
     var uploadBtn = element(by.css('[ng-click="vm.uploadImage()"]'));
-    // File upload elements
+    // File explorer dialog elements
     var path = require('path');
     var absolutePath = path.resolve(__dirname, "../conf/temp/pic.png");
     var feFilePath = element(by.css('input[type="file"]'));
@@ -18,11 +18,11 @@ var uploadPic_page = function () {
     this.uploadProfilePic = function () {
         smallCircleIcon.click();
         browser.sleep(100);
-        profilePic.click();
-        profileDlg.click();
-        feFilePath.sendKeys(absolutePath);
-        uploadBtn.click();
-        feCloseBtn.click();
+        // profilePic.click();
+        // profileDlg.click();
+        // feFilePath.sendKeys(absolutePath);
+        // feCloseBtn.click();
+        // uploadBtn.click();
     };
 };
 module.exports = new uploadPic_page();

@@ -3,30 +3,43 @@ var occupation_page = function () {
     var organisationTxt = element(by.model('vm.userProfile.organisation'));
     var departmentTxt = element(by.model('vm.userProfile.department'));
     var positionTxt = element(by.model('vm.userProfile.position'));
-    var editPenIcon = element.all(by.css('.icon-edit'));
-    var checkIcon = element(by.css('.icon-check'));
+    var editPenIconOrg = element(by.css('[ng-click="vm.toggleEdit(0)"]'));
+    var editPenIconDep = element(by.css('[ng-click="vm.toggleEdit(1)"]'));
+    var editPenIconPos = element(by.css('[ng-click="vm.toggleEdit(2)"]'));
+    var checkIcon = element(by.css('.icon-check[role="button"]'));
 
     // Functions
     this.fillOrganisationTxt = function () {
-        organisationTxt.click();
-        browser.actions().mouseMove(organisationTxt).perform();
-        editPenIcon.get(0).click();
-        organisationTxt.sendKeys('HTEC');
+        browser.actions()
+            .mouseMove(organisationTxt)
+            .mouseDown(editPenIconOrg)
+            .mouseUp(editPenIconOrg)
+            .perform();
+        organisationTxt.click().sendKeys('HTEC');
         checkIcon.click();
+        expect(organisationTxt.getAttribute('value')).toEqual('HTEC');
     };
 
-    this.fillDepartmentTxt = function() {
-        browser.actions().mouseMove(departmentTxt).perform();
-        editPenIcon.get(1).click();
-        departmentTxt.sendKeys('Stena');
+    this.fillDepartmentTxt = function () {
+        browser.actions()
+            .mouseMove(departmentTxt)
+            .mouseDown(editPenIconDep)
+            .mouseUp(editPenIconDep)
+            .perform();
+        departmentTxt.click().sendKeys('Stena');
         checkIcon.click();
+        expect(departmentTxt.getAttribute('value')).toEqual('Stena');
     };
 
-    this.fillPositionTxt = function() {
-        browser.actions().mouseMove(positionTxt).perform();
-        editPenIcon.get(2).click();
-        positionTxt.sendKeys('QA Engineer');
+    this.fillPositionTxt = function () {
+        browser.actions()
+            .mouseMove(positionTxt)
+            .mouseDown(editPenIconPos)
+            .mouseUp(editPenIconPos)
+            .perform();
+        positionTxt.click().sendKeys('QA Engineer');
         checkIcon.click();
+        expect(positionTxt.getAttribute('value')).toEqual('QA Engineer');
     };
 };
 module.exports = new occupation_page();

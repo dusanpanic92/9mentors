@@ -1,5 +1,4 @@
 var util = require ('util');
-var EC = protractor.ExpectedConditions;
 var login_page = require('../page/login_page.js');
 var uploadPic_page = require('../page/uploadPic_page.js');
 var occupation_page = require('../page/occupation_page.js');
@@ -11,8 +10,7 @@ describe ('Login, upload profile pic, occupation', function() {
 	});
 
 	it ('Login', function() {
-		login_page.loginIntoPage();
-		browser.wait(EC.urlContains('home'), 5000);
+		login_page.loginIntoPage('dusan.panic@mailinator.com', '123123');
 	});	
 	
 	it ('Upload profile picture', function() {
@@ -20,11 +18,11 @@ describe ('Login, upload profile pic, occupation', function() {
 	});
 	
 	it('Fill occupation fields', function() {
-		browser.sleep(20000);
-		// occupation_page.fillDepartmentTxt();
+		occupation_page.fillOrganisationTxt();
+		occupation_page.fillDepartmentTxt();
+		occupation_page.fillPositionTxt();
 	});
 		
-
 	it ('Fake test', function() {
 		console.log("The test is done!");
 	});
